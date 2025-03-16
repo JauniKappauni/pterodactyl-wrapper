@@ -8,6 +8,8 @@
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     $response = curl_exec($curl);
     curl_close($curl);
+
+    $json = json_decode($response, true);
 ?>
 
 <!DOCTYPE html>
@@ -18,5 +20,7 @@
     <title>Document</title>
 </head>
 <body>
-    <pre><?php echo json_encode(json_decode($response), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) ?></pre>
+    <?php
+        include "serverlist.php";
+    ?>
 </body>
